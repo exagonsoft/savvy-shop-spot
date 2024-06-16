@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-end-orange: #ee3600;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,13 +19,23 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background: 
+    url('/bg.png') no-repeat center/cover, /* Add your image here */
+    linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
+      var(--background-end-orange)
+    ),
     rgb(var(--background-start-rgb));
+  scrollbar-width: 0;
 }
+
+
+body::-webkit-scrollbar{
+  width: 0;
+  display: none;
+}
+
 
 @layer utilities {
   .text-balance {
