@@ -6,6 +6,7 @@ frontend:
         - npm ci --cache .npm --prefer-offline
     build:
       commands:
+        - npx prisma migrate deploy
         - npm run build
   artifacts:
     baseDirectory: .next
