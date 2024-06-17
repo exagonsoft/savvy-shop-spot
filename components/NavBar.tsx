@@ -19,12 +19,10 @@ function Navbar({ className }: { className?: string }) {
     <div className={cn("fixed top-10 inset-x-0 z-50", className)}>
       <Menu setActive={setActive}>
         <Link href={"/"} className="w-full flex justify-start items-center">
-          <Image
+          <img
             src="/logo.png"
-            width={150}
-            height={60}
             alt="Logo"
-            className="transition-all antialiased hover:scale-[1.1]"
+            className="transition-all antialiased hover:scale-[1.1] w-[150px] h-[60px]"
           />
         </Link>
         <div className="w-full flex justify-center items-center gap-6">
@@ -85,7 +83,7 @@ function Navbar({ className }: { className?: string }) {
           <MenuItem
             setActive={setActive}
             active={active}
-            item="News"
+            item="Social"
             otherClasses="uppercase font-bold text-[#2d2e4c]"
           >
             <div className="  text-sm grid grid-cols-2 gap-10 p-4">
@@ -115,13 +113,6 @@ function Navbar({ className }: { className?: string }) {
               />
             </div>
           </MenuItem>
-          <MenuItem
-            setActive={setActive}
-            active={active}
-            item="FAQS"
-            towable={false}
-            otherClasses="uppercase font-bold text-[#2d2e4c]"
-          ></MenuItem>
         </div>
         <div className="w-full flex justify-center items-center"></div>
       </Menu>
