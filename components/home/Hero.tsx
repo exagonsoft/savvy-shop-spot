@@ -18,16 +18,16 @@ const Hero = () => {
       <div className="w-full items-center md:items-start md:px-8 flex flex-col">
         <h1
           className={cn(
-            "md:text-4xl text-xl w-full md:w-[50%] px-4 text-wrap text-center font-bold text-white relative z-20"
+            "md:text-4xl text-xl w-full md:w-[50%]  lg:w-[40%] px-4 text-wrap text-center font-bold text-white relative z-20"
           )}
         >
           Get the Latest Insights on PC Hardware and Build Your Dream Machine
         </h1>
-        <p className="text-center mt-2 w-full md:w-[50%] text-wrap text-neutral-300 relative z-20">
+        <p className="text-center mt-2 w-full md:w-[50%]  lg:w-[40%] text-wrap text-neutral-300 relative z-20">
           We provide part selection, pricing, and compatibility guidance for
           do-it-yourself computer builders.
         </p>
-        <div className="w-max md:w-[50%] flex justify-center py-4">
+        <div className="w-max md:w-[50%]  lg:w-[40%] flex justify-center py-4">
           <MagicButton
             text="Build Your Workstation"
             icon={<FaTools />}
