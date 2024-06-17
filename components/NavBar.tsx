@@ -4,6 +4,21 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navBarMenu";
 import { cn } from "@/utils/cn";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  FaBox,
+  FaBoxes,
+  FaChartLine,
+  FaForumbee,
+  FaLightbulb,
+  FaNewspaper,
+  FaQq,
+  FaQuestion,
+  FaRegChartBar,
+  FaServer,
+} from "react-icons/fa";
+import { FaComputer, FaMessage, FaPersonDrowning } from "react-icons/fa6";
+import Separator from "./shared/Separator";
+import { MdForum } from "react-icons/md";
 
 export function NavbarDemo() {
   return (
@@ -30,86 +45,98 @@ function Navbar({ className }: { className?: string }) {
             setActive={setActive}
             active={active}
             item="Products"
+            icon={<FaBox />}
             otherClasses="uppercase font-bold text-[#2d2e4c]"
           >
-            <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+            <div className="text-sm grid grid-cols-3 gap-10 p-4">
+              <ProductItem title="CPUs" href="/products" src="/cpu-icon.png" />
               <ProductItem
-                title="Algochurn"
-                href="https://algochurn.com"
-                src="/algochurn.webp"
-                description="Prepare for tech interviews like never before."
+                title="CPU Coolers"
+                href="/products"
+                src="/cooler-icon.png"
               />
               <ProductItem
-                title="Tailwind Master Kit"
-                href="https://tailwindmasterkit.com"
-                src="/algochurn.webp"
-                description="Production ready Tailwind css components for your next project"
+                title="Motherboards"
+                href="/products"
+                src="/board-icon.png"
               />
               <ProductItem
-                title="Moonbeam"
-                href="https://gomoonbeam.com"
-                src="/algochurn.webp"
-                description="Never write from scratch again. Go from idea to blog in minutes."
+                title="RAM Cards"
+                href="/products"
+                src="/ram-icon.png"
               />
               <ProductItem
-                title="Rogue"
-                href="https://userogue.com"
-                src="/algochurn.webp"
-                description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
+                title="Storage"
+                href="/products"
+                src="/storage-icon.png"
+              />
+              <ProductItem
+                title="Graphic Cards"
+                href="/products"
+                src="/graphic-icon.png"
+              />
+              <ProductItem
+                title="Power Supplies"
+                href="/products"
+                src="/supply-icon.png"
+              />
+              <ProductItem
+                title="Cases"
+                href="/products"
+                src="/case-icon.png"
               />
             </div>
           </MenuItem>
+          <Separator />
           <MenuItem
             setActive={setActive}
             active={active}
             item="Ideas"
+            icon={<FaLightbulb />}
             towable={false}
             otherClasses="uppercase font-bold text-[#2d2e4c]"
           ></MenuItem>
+          <Separator />
           <MenuItem
             setActive={setActive}
             active={active}
             item="Bundles"
+            icon={<FaComputer />}
             towable={false}
             otherClasses="uppercase font-bold text-[#2d2e4c]"
           ></MenuItem>
+          <Separator />
           <MenuItem
             setActive={setActive}
             active={active}
             item="Trends"
+            icon={<FaChartLine />}
             towable={false}
             otherClasses="uppercase font-bold text-[#2d2e4c]"
           ></MenuItem>
+          <Separator />
           <MenuItem
             setActive={setActive}
             active={active}
             item="Social"
+            icon={<FaMessage />}
             otherClasses="uppercase font-bold text-[#2d2e4c]"
           >
             <div className="  text-sm grid grid-cols-2 gap-10 p-4">
               <ProductItem
-                title="Algochurn"
+                title="Discussions"
                 href="https://algochurn.com"
-                src="/algochurn.webp"
-                description="Prepare for tech interviews like never before."
+                icon={<MdForum />}
               />
               <ProductItem
-                title="Tailwind Master Kit"
+                title="FAQs"
                 href="https://tailwindmasterkit.com"
-                src="/algochurn.webp"
-                description="Production ready Tailwind css components for your next project"
+                icon={<FaQuestion/>}
               />
               <ProductItem
-                title="Moonbeam"
+                title="News"
                 href="https://gomoonbeam.com"
-                src="/algochurn.webp"
-                description="Never write from scratch again. Go from idea to blog in minutes."
-              />
-              <ProductItem
-                title="Rogue"
-                href="https://userogue.com"
-                src="/algochurn.webp"
-                description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
+                icon={<FaNewspaper />}
               />
             </div>
           </MenuItem>
