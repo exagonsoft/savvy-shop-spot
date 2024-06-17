@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 const transition = {
   type: "spring",
@@ -18,21 +19,27 @@ export const MenuItem = ({
   active,
   item,
   children,
+  towable = true,
+  link,
+  otherClasses
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
+  towable?: boolean;
+  link?: string;
+  otherClasses?: string;
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
-      <motion.p
+      <motion.div
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+        className={`cursor-pointer flex items-center justify-center text-black hover:opacity-[0.9] hover:scale-[1.1] dark:text-white transition-all antialiased ${otherClasses}`}
       >
-        {item}
-      </motion.p>
-      {active !== null && (
+        {towable ? <div className="flex gap-2 items-center">{item} <FaArrowAltCircleDown /></div> : <Link href={`/${link}`}>{item}</Link>}
+      </motion.div>
+      {active !== null && towable && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -70,7 +77,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative w-full  border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-between items-center space-x-4 px-8 py-2 drop-shadow-md"
+      className="relative w-full h-full  border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-between items-center space-x-4 px-8 py-2 drop-shadow-md"
     >
       {children}
     </nav>
