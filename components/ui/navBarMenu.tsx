@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,14 +18,16 @@ export const MenuItem = ({
   setActive,
   active,
   item,
+  icon,
   children,
   towable = true,
   link,
-  otherClasses
+  otherClasses,
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
+  icon?: ReactNode;
   children?: React.ReactNode;
   towable?: boolean;
   link?: string;
@@ -37,7 +39,17 @@ export const MenuItem = ({
         transition={{ duration: 0.3 }}
         className={`cursor-pointer flex items-center justify-center text-black hover:opacity-[0.9] hover:scale-[1.1] dark:text-white transition-all antialiased ${otherClasses}`}
       >
-        {towable ? <div className="flex gap-2 items-center">{item} <FaArrowAltCircleDown /></div> : <Link href={`/${link}`}>{item}</Link>}
+        {towable ? (
+          <div className="flex gap-2 items-center text-[1rem]">
+            {icon}
+            {item} <FaArrowAltCircleDown />
+          </div>
+        ) : (
+          <div className="flex gap-2 items-center text-[1rem]">
+            {icon}
+            <Link href={`/${link}`}>{item}</Link>
+          </div>
+        )}
       </motion.div>
       {active !== null && towable && (
         <motion.div
@@ -86,31 +98,35 @@ export const Menu = ({
 
 export const ProductItem = ({
   title,
-  description,
   href,
   src,
+  icon,
 }: {
   title: string;
-  description: string;
   href: string;
-  src: string;
+  src?: string;
+  icon?: ReactNode;
 }) => {
   return (
-    <Link href={href} className="flex space-x-2">
-      <Image
-        src={src}
-        width={140}
-        height={70}
-        alt={title}
-        className="flex-shrink-0 rounded-md shadow-2xl"
-      />
-      <div>
-        <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
+    <Link
+      href={href}
+      className="flex flex-col p-2 items-center h-max space-x-2 shadow-md rounded-md transition-all hover:shadow-xl"
+    >
+      <div className="rounded-md w-[6rem] h-[5rem] bg-transparent flex justify-center items-center text-2xl font-bold">
+        {icon ? (
+          icon
+        ) : (
+          <img
+            src={src}
+            alt={title}
+            className="w-full h-full rounded-md object-fill bg-transparent"
+          />
+        )}
+      </div>
+      <div className="m-0 p-0 w-full contents px-2">
+        <h4 className="text-xl w-full m-0 p-0 font-bold text-black dark:text-white text-center">
           {title}
         </h4>
-        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
-          {description}
-        </p>
       </div>
     </Link>
   );

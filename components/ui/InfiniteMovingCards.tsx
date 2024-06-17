@@ -127,10 +127,10 @@ export const InfiniteMovingCards = ({
                   <li>{`${item.videoCard.slice(0, 60)}...)`}</li>
                   <li>{item.case}</li>
                 </ul>
-                <div className="w-full flex justify-between p-2 bg-slate-500 rounded-b-md">
-                  <p className="guide__price">{`$${item.price}`}</p>
-                  <p className="guide__links">
-                    <span className="guide__link--comments">{`💬${item.comments}`}</span>
+                <div className="w-full flex justify-between p-2 bg-slate-900 rounded-b-md">
+                  <p className="text-white">{`$${item.price}`}</p>
+                  <p className="text-white">
+                    <span className="text-whites">{`💬${item.comments}`}</span>
                   </p>
                 </div>
               </div>
