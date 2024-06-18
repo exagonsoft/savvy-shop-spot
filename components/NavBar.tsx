@@ -1,20 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navBarMenu";
+import { Menu, MenuItem, ProductItem } from "./ui/navBarMenu";
 import { cn } from "@/utils/cn";
-import Image from "next/image";
 import Link from "next/link";
 import {
   FaBox,
-  FaBoxes,
   FaChartLine,
-  FaForumbee,
   FaLightbulb,
   FaNewspaper,
-  FaQq,
   FaQuestion,
-  FaRegChartBar,
-  FaServer,
 } from "react-icons/fa";
 import { FaComputer, FaMessage, FaPersonDrowning } from "react-icons/fa6";
 import Separator from "./shared/Separator";
