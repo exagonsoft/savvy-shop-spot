@@ -19,14 +19,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: 
-    url('/bg.png') no-repeat center/cover, /* Add your image here */
-    linear-gradient(
-      to bottom,
-      transparent,
-      var(--background-end-orange)
-    ),
-    rgb(var(--background-start-rgb));
+  background:url(/bg.png) no-repeat center / cover, /* Add your image here */ linear-gradient(to bottom, #be7507, #be7507), rgb(198 209 211 / 57%);
   scrollbar-width: 0;
 }
 
